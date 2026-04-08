@@ -1,32 +1,24 @@
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
 
 public class TrainApp {
     public static void main(String[] args) {
 
-        System.out.println("UC4 - Maintain Ordered Bogie Consist");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies");
 
-        LinkedList<String> train = new LinkedList<>();
+        LinkedHashSet<String> train = new LinkedHashSet<>();
 
         train.add("Engine");
         train.add("Sleeper");
-        train.add("AC");
         train.add("Cargo");
         train.add("Guard");
+        train.add("Sleeper");
 
-        System.out.println("Initial Train Consist:");
+        System.out.println("Final Train Formation:");
         System.out.println(train + "\n");
 
-        train.add(1, "Pantry Car");
+        System.out.println("Note:");
+        System.out.println("LinkedHashSet preserves insertion order and removes duplicates automatically.\n");
 
-        System.out.println("After Inserting 'Pantry Car' at position 2:");
-        System.out.println(train + "\n");
-
-        train.removeFirst();
-        train.removeLast();
-
-        System.out.println("After Removing First and Last Bogie:");
-        System.out.println(train + "\n");
-
-        System.out.println("UC4 ordered consist operations completed...");
+        System.out.println("UC5 formation setup completed...");
     }
 }

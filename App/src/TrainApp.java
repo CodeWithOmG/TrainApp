@@ -1,36 +1,32 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class TrainApp {
     public static void main(String[] args) {
 
-        System.out.println("========================================");
-        System.out.println("UC2 - Add Passenger Bogies to Train");
-        System.out.println("========================================\n");
+        System.out.println("UC4 - Maintain Ordered Bogie Consist");
 
-        ArrayList<String> bogies = new ArrayList<>();
+        LinkedList<String> train = new LinkedList<>();
 
-        bogies.add("Sleeper");
-        bogies.add("AC Chair");
-        bogies.add("First Class");
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
 
-        System.out.println("After Adding Bogies:");
-        System.out.println("Passenger Bogies : " + bogies + "\n");
+        System.out.println("Initial Train Consist:");
+        System.out.println(train + "\n");
 
-        // Remove AC Chair
-        bogies.remove("AC Chair");
+        train.add(1, "Pantry Car");
 
-        // After removing
-        System.out.println("After Removing 'AC Chair':");
-        System.out.println("Passenger Bogies : " + bogies + "\n");
+        System.out.println("After Inserting 'Pantry Car' at position 2:");
+        System.out.println(train + "\n");
 
-        // Check existence
-        System.out.println("Checking if 'Sleeper' exists:");
-        System.out.println("Contains Sleeper? : " + bogies.contains("Sleeper") + "\n");
+        train.removeFirst();
+        train.removeLast();
 
-        // Final output
-        System.out.println("Final Train Passenger Consist:");
-        System.out.println(bogies + "\n");
+        System.out.println("After Removing First and Last Bogie:");
+        System.out.println(train + "\n");
 
-        System.out.println("UC2 operations completed successfully...");
+        System.out.println("UC4 ordered consist operations completed...");
     }
 }

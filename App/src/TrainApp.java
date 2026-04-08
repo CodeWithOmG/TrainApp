@@ -1,29 +1,44 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+class Bogie {
+    private String name;
+    private int capacity;
+
+    public Bogie(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
+
+    public String getName() { return name; }
+    public int getCapacity() { return capacity; }
+
+    @Override
+    public String toString() {
+        return name + " -> " + capacity;
+    }
+}
 
 public class TrainApp {
     public static void main(String[] args) {
+        System.out.println("UC7 - Sort Bogies by Capacity (Comparator)");
 
-        System.out.println("========================================");
-        System.out.println("UC6 - Map Bogie to Capacity");
-        System.out.println("========================================\n");
+        List<Bogie> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 24));
+        bogies.add(new Bogie("General", 90));
 
-        // Create HashMap
-        HashMap<String, Integer> bogieMap = new HashMap<>();
+        System.out.println("Before Sorting:");
+        bogies.forEach(System.out::println);
 
-        // Add bogie-capacity pairs
-        bogieMap.put("Sleeper", 72);
-        bogieMap.put("AC Chair", 60);
-        bogieMap.put("First Class", 24);
+        bogies.sort(Comparator.comparingInt(Bogie::getCapacity));
 
-        // Display mapping
-        System.out.println("Bogie Capacity Details:\n");
+        // 4. Display after sorting
+        System.out.println("\nAfter Sorting by Capacity:");
+        bogies.forEach(System.out::println);
 
-        for (Map.Entry<String, Integer> entry : bogieMap.entrySet()) {
-            System.out.println("Bogie: " + entry.getKey() +
-                    " | Capacity: " + entry.getValue());
-        }
-
-        System.out.println("\nUC6 mapping operations completed...");
+        System.out.println("\nUC7 sorting completed...");
     }
 }
